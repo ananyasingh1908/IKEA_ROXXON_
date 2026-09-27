@@ -38,7 +38,7 @@ export const ScanRoom: React.FC = () => {
 
             showToast(`🎉 ${result.message}`);
             loadDemoClassroom();
-            navigate("/planner");
+            navigate("/secondhand.html");
         } catch (error) {
             console.error(error);
             showToast("Failed to process VGGT 3D reconstruction");
@@ -113,7 +113,7 @@ export const ScanRoom: React.FC = () => {
                     {/* CTA */}
                     <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
                         <button
-                            onClick={() => navigate("/planner")}
+                            onClick={() => navigate("/secondhand.html")}
                             className="text-xs font-bold text-slate-500 hover:text-slate-900"
                         >
                             ← Skip to 3D Planner

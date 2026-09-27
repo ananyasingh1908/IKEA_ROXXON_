@@ -25,7 +25,7 @@ export const Home: React.FC = () => {
                         </p>
                         <div className="flex flex-wrap gap-4 pt-4">
                             <Link
-                                to="/planner"
+                                to="/secondhand.html"
                                 className="bg-[#0058A3] hover:bg-blue-800 text-white font-bold px-8 py-4 rounded-2xl shadow-lg transition-all active:scale-95 text-sm flex items-center space-x-2"
                             >
                                 <span>Design My Room (3D Planner)</span>
@@ -71,13 +71,13 @@ export const Home: React.FC = () => {
                             <p className="text-slate-300 text-xs mt-1">Drag, rotate, measure clearance, and test furniture fit with collision detection.</p>
                             <div className="mt-4 flex space-x-3">
                                 <Link
-                                    to="/planner?demo=classroom"
+                                    to="/secondhand.html?demo=classroom"
                                     className="bg-white text-slate-900 font-bold px-4 py-2 rounded-xl text-xs hover:bg-[#FFDB00] transition-colors"
                                 >
                                     ✨ Try Classroom Demo
                                 </Link>
                                 <Link
-                                    to="/planner?demo=living"
+                                    to="/secondhand.html?demo=living"
                                     className="bg-white/20 text-white font-bold px-4 py-2 rounded-xl text-xs backdrop-blur-md hover:bg-white/30 transition-colors"
                                 >
                                     🏠 Try Living Room Demo

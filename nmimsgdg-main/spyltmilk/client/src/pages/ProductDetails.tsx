@@ -31,7 +31,7 @@ export const ProductDetails: React.FC = () => {
             condition: product.condition
         });
         showToast(`Added "${product.name}" to 3D Room`);
-        navigate("/planner");
+        navigate("/secondhand.html");
     };
 
     return (

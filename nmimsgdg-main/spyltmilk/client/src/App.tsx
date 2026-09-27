@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 // SPYLT Milk Landing Page Components
 import Navbar from "./components/Navbar";
@@ -47,9 +47,8 @@ const App: React.FC = () => {
                 <Route path="/" element={<SpyltMilkLandingPage />} />
                 
                 {/* 2nd Hand Furniture & 3D Room Planner Routes */}
-                <Route path="/secondhand" element={<Planner />} />
                 <Route path="/secondhand.html" element={<Planner />} />
-                <Route path="/planner" element={<Planner />} />
+                <Route path="/planner" element={<Navigate to="/secondhand.html" replace />} />
                 <Route path="/marketplace" element={<Marketplace />} />
                 <Route path="/scan" element={<ScanRoom />} />
                 <Route path="/my-rooms" element={<RoomDetails />} />

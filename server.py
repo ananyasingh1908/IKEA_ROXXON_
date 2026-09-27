@@ -23,18 +23,21 @@ class SPARequestHandler(http.server.SimpleHTTPRequestHandler):
             parsed_url = urllib.parse.urlparse(self.path)
             path = parsed_url.path.rstrip('/')
 
+            if path == '/secondhand':
+                self.send_error(404, 'Not Found')
+                return
+
             # Clean route rewrites
             route_map = {
                 '/marketplace': '/marketplace.html',
-                '/secondhand': '/secondhand.html',
                 '/product': '/product.html',
                 '/checkout': '/checkout.html',
                 '/shopping-bag': '/shopping-bag.html',
                 '/cart': '/shopping-bag.html',
                 '/bag': '/shopping-bag.html',
-                '/planner': '/planner.html',
                 '/intro': '/intro.html',
                 '/spylt': '/spylt.html',
+                '/planner': '/planner.html',
                 '/login': '/login.html',
                 '/auth': '/login.html',
                 '/signin': '/login.html',
@@ -42,7 +45,11 @@ class SPARequestHandler(http.server.SimpleHTTPRequestHandler):
                 '/register': '/login.html',
             }
 
-            if path.startswith('/product/'):
+            # Check route_map FIRST to prevent directory conflicts (e.g., marketplace/ dir)
+            if path in route_map:
+                query = f"?{parsed_url.query}" if parsed_url.query else ""
+                self.path = route_map[path] + query
+            elif path.startswith('/product/'):
                 prod_id = path.replace('/product/', '')
                 query = f"?id={prod_id}&{parsed_url.query}" if parsed_url.query else f"?id={prod_id}"
                 self.path = '/product.html' + query
@@ -50,9 +57,6 @@ class SPARequestHandler(http.server.SimpleHTTPRequestHandler):
                 prod_id = path.replace('/marketplace/product/', '')
                 query = f"?id={prod_id}&{parsed_url.query}" if parsed_url.query else f"?id={prod_id}"
                 self.path = '/product.html' + query
-            elif path in route_map:
-                query = f"?{parsed_url.query}" if parsed_url.query else ""
-                self.path = route_map[path] + query
             elif path and not os.path.exists(os.path.join(DIRECTORY, path.lstrip('/'))):
                 # Check if adding .html matches a file
                 html_candidate = os.path.join(DIRECTORY, path.lstrip('/') + '.html')

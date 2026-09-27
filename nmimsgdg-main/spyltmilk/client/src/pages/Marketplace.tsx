@@ -71,7 +71,7 @@ export const Marketplace: React.FC = () => {
             condition: furniture.condition
         });
         showToast(`Added "${furniture.name}" to 3D Room`);
-        navigate("/planner");
+        navigate("/secondhand.html");
     };
 
     const handleConfirmBuy = () => {

@@ -20,7 +20,7 @@ export const RoomDetails: React.FC = () => {
     const handleLoadRoom = (room: RoomState) => {
         setRoomDimensions(room.width, room.length, room.height);
         showToast(`Loaded "${room.name}"`);
-        navigate("/planner");
+        navigate("/secondhand.html");
     };
 
     return (
@@ -35,7 +35,7 @@ export const RoomDetails: React.FC = () => {
                     </div>
 
                     <Link
-                        to="/planner"
+                        to="/secondhand.html"
                         className="px-6 py-2.5 bg-[#0058A3] hover:bg-blue-800 text-white font-bold rounded-full text-xs shadow-md transition-all"
                     >
                         + Create New Room
@@ -53,7 +53,7 @@ export const RoomDetails: React.FC = () => {
                         </p>
                         <div className="flex justify-center space-x-3 pt-2">
                             <Link
-                                to="/planner?demo=classroom"
+                                to="/secondhand.html?demo=classroom"
                                 className="px-4 py-2 bg-[#FFDB00] text-black font-bold text-xs rounded-xl shadow-sm"
                             >
                                 Try Classroom Demo

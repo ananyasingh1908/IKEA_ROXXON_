@@ -94,6 +94,99 @@
     return 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80';
   };
 
+  window.resolveFurnitureGalleryByTitle = function (title, category, primaryImage) {
+    const t = (title || '').toLowerCase();
+    const c = (category || '').toLowerCase();
+
+    // 1. DESKS & WORKSTATIONS
+    if (t.includes('desk') || t.includes('workstation') || t.includes('study') || t.includes('bekant') || t.includes('micke') || c.includes('desk')) {
+      const p1 = primaryImage || 'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=1200&q=80';
+      return [
+        p1,
+        'https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80'
+      ];
+    }
+
+    // 2. CHAIRS & SEATING
+    if (t.includes('chair') || t.includes('armchair') || t.includes('stool') || t.includes('markus') || t.includes('poäng') || t.includes('strandmon') || c.includes('chair')) {
+      const p1 = primaryImage || 'https://images.unsplash.com/photo-1580481077198-98e3c4a86ce9?auto=format&fit=crop&w=1200&q=80';
+      return [
+        p1,
+        'https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1200&q=80'
+      ];
+    }
+
+    // 3. SOFAS & COUCHES
+    if (t.includes('sofa') || t.includes('couch') || t.includes('lounge') || t.includes('kivik') || t.includes('landskrona') || c.includes('sofa')) {
+      const p1 = primaryImage || 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=80';
+      return [
+        p1,
+        'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=1200&q=80'
+      ];
+    }
+
+    // 4. BEDS & BEDROOM
+    if (t.includes('bed') || t.includes('linen') || t.includes('malm') || t.includes('hemnes') || t.includes('mattress') || c.includes('bed')) {
+      const p1 = primaryImage || 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80';
+      return [
+        p1,
+        'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1540518614846-7ede433c4b71?auto=format&fit=crop&w=1200&q=80'
+      ];
+    }
+
+    // 5. TABLES & COFFEE TABLES
+    if (t.includes('table') || t.includes('coffee table') || t.includes('dining') || t.includes('fjällbo') || t.includes('nordviken') || c.includes('table')) {
+      const p1 = primaryImage || 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=1200&q=80';
+      return [
+        p1,
+        'https://images.unsplash.com/photo-1577140917170-285929fb55b7?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?auto=format&fit=crop&w=1200&q=80'
+      ];
+    }
+
+    // 6. STORAGE, WARDROBES & SHELVES
+    if (t.includes('wardrobe') || t.includes('shelf') || t.includes('bookcase') || t.includes('storage') || t.includes('pax') || t.includes('billy') || t.includes('kallax') || c.includes('storage') || c.includes('shelf')) {
+      const p1 = primaryImage || 'https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=1200&q=80';
+      return [
+        p1,
+        'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1597072689227-8882273e8f6a?auto=format&fit=crop&w=1200&q=80'
+      ];
+    }
+
+    // 7. LIGHTING & LAMPS
+    if (t.includes('lamp') || t.includes('light') || t.includes('lighting') || c.includes('light')) {
+      const p1 = primaryImage || 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=1200&q=80';
+      return [
+        p1,
+        'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1543198126-a8ad8e47fb22?auto=format&fit=crop&w=1200&q=80'
+      ];
+    }
+
+    // 8. OUTDOOR & PATIO
+    if (t.includes('outdoor') || t.includes('patio') || t.includes('garden') || c.includes('outdoor')) {
+      const p1 = primaryImage || 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80';
+      return [
+        p1,
+        'https://images.unsplash.com/photo-1519974719765-e6559eac2575?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80'
+      ];
+    }
+
+    // Default Fallback: Neutral furniture gallery
+    const p1 = primaryImage || window.resolveFurnitureImageByTitle(title, category);
+    return [
+      p1,
+      'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=80'
+    ];
+  };
+
   window.getFurnitureImage = function (item) {
     if (!item) return 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80';
     if (item.id && PRODUCT_IMAGE_MAP[item.id]) {

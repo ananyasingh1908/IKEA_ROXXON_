@@ -23,12 +23,9 @@ class SPARequestHandler(http.server.SimpleHTTPRequestHandler):
             parsed_url = urllib.parse.urlparse(self.path)
             path = parsed_url.path.rstrip('/')
 
-            if path == '/secondhand':
-                self.send_error(404, 'Not Found')
-                return
-
             # Clean route rewrites
             route_map = {
+                '/': '/ikea-india.html',
                 '/marketplace': '/marketplace.html',
                 '/product': '/product.html',
                 '/checkout': '/checkout.html',
@@ -78,6 +75,7 @@ if __name__ == '__main__':
     server_address = ('', PORT)
     httpd = http.server.ThreadingHTTPServer(server_address, SPARequestHandler)
     print(f"IKEA & SPYLT Multi-Threaded Server running at http://localhost:{PORT}")
+    print("REMINDER: To enable AI/API features, please also run the backend: python backend/main.py (Port 8000)")
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:
